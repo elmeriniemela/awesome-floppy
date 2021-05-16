@@ -15,6 +15,7 @@ ruled.client.connect_signal(
 			properties = {
 				focus = awful.client.focus.filter,
 				raise = true,
+                switch_to_tags = true,
 				floating = false,
 				maximized = false,
 				above = false,
@@ -26,7 +27,7 @@ ruled.client.connect_signal(
 				keys = client_keys,
 				buttons = client_buttons,
 				screen = awful.screen.preferred,
-				placement = awful.placement.no_overlap + awful.placement.no_offscreen
+				placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 			}
 		}
 
@@ -134,12 +135,12 @@ ruled.client.connect_signal(
 					'XTerm',
 					'UXTerm',
 					'kitty',
-					'K3rmit'
+					'K3rmit',
+                    'Terminator',
 				}
 			},
 			properties = {
 				tag = '1',
-				switch_to_tags = true,
 				size_hints_honor = false,
 				titlebars_enabled = true
 			}
@@ -155,7 +156,6 @@ ruled.client.connect_signal(
 					'discord',
 					'Chromium',
 					'Google-chrome',
-					'TelegramDesktop'
 				}
 			},
 			properties = {
@@ -191,12 +191,12 @@ ruled.client.connect_signal(
 					'dolphin',
 					'ark',
 					'Nemo',
-					'File-roller'
+					'File-roller',
+                    'Pcmanfm',
 				}
 			},
 			properties = {
 				tag = '4',
-				switch_to_tags = true
 			}
 		}
 
@@ -211,28 +211,28 @@ ruled.client.connect_signal(
 			},
 			properties = {
 				tag = '5',
-				switch_to_tags = true,
 				placement = awful.placement.centered
 			}
 		}
 
 		-- Gaming
 		ruled.client.append_rule {
-			id = 'gaming',
+			id = 'chat',
 			rule_any = {
 				class = {
-					'Wine',
-					'dolphin-emu',
-					'Steam',
-					'Citra',
-					'supertuxkart'
+					'Slack',
+                    'Thunderbird',
+                    'whatsapp-nativefier-d40211',
+                    'zoom',
+                    'Signal',
+                    'Zulip',
+                    'TelegramDesktop',
+                    'discord',
 				},
-				name = {'Steam'}
 			},
 			properties = {
 				tag = '6',
 				skip_decoration = true,
-				switch_to_tags = true,
 				placement = awful.placement.centered
 			}
 		}
@@ -278,12 +278,13 @@ ruled.client.connect_signal(
 					'UnityHub',
 					'jetbrains-studio',
 					'Ettercap',
-					'scrcpy'
+					'scrcpy',
+                    'code',
+                    'code-oss',
 				}
 			},
 			properties = {
 				tag = '9',
-				skip_decoration = true
 			}
 		}
 
@@ -314,17 +315,35 @@ ruled.client.connect_signal(
 					'file_progress',
 					'Popup',
 					'nm-connection-editor',
+                    'DTA',  -- Firefox addon DownThemAll.
 				},
 				class = {
 					'scrcpy',
 					'Mugshot',
-					'Pulseeffects'
+					'Pulseeffects',
+                    'Arandr',
+                    'Gpick',
+                    'Kruler',
+                    'MessageWin',  -- kalarm.
+                    'MPlayer',
+                    'Sxiv',
+                    'Wpa_gui',
+                    'pinentry',
+                    'veromix',
+                    'xtightvncviewer',
+                    '.*%.py$',
+                    'zoom',
+                    'Matplotlib',
+                    'Galculator',
 				},
-				role    = {
+				role = {
 					'AlarmWindow',
 					'ConfigManager',
-					'pop-up'
-				}
+					'pop-up',
+				},
+                name = {
+                    'Event Tester',  -- xev.
+                },
 			},
 			properties = {
 				titlebars_enabled = true,

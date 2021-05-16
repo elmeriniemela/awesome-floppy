@@ -73,21 +73,6 @@ local global_keys = awful.util.table.join(
         { description = "go back", group = "tag" }
     ),
 
-    -- Non-empty tag browsing
-    awful.key({ altkey }, "Left",
-        function ()
-            lain.util.tag_view_nonempty(-1)
-        end,
-        { description = "view  previous nonempty", group = "tag" }
-    ),
-
-    awful.key({ altkey }, "Right",
-        function ()
-            lain.util.tag_view_nonempty(1)
-        end,
-        { description = "view  previous nonempty", group = "tag" }
-    ),
-
     awful.key({ }, "Print",
         function()
             awful.spawn.with_shell("flameshot gui")
@@ -204,23 +189,6 @@ local global_keys = awful.util.table.join(
         { description = "go forth", group = "client" }
     ),
 
-
-    -- On the fly useless gaps change
-    awful.key({ altkey, "Control" }, "+",
-        function ()
-            lain.util.useless_gaps_resize(1)
-        end,
-        { description = "increment useless gaps", group = "tag" }
-    ),
-
-    awful.key({ altkey, "Control" }, "-",
-        function ()
-            lain.util.useless_gaps_resize(-1)
-        end,
-        { description = "decrement useless gaps", group = "tag" }
-    ),
-
-
     -- Standard program
     awful.key({ modkey, "Control" }, "r",
         awesome.restart,
@@ -300,26 +268,6 @@ local global_keys = awful.util.table.join(
         { description = "restore minimized", group = "client" }
     ),
 
-    -- Widgets popups
-    awful.key({ altkey, }, "c",
-        function ()
-            if beautiful.cal then
-                beautiful.cal.show(7)
-            end
-        end,
-        { description = "show calendar", group = "widgets" }
-    ),
-
-    awful.key({ altkey, }, "h",
-        function ()
-            if beautiful.fs then
-                beautiful.fs.show(7)
-            end
-        end,
-        { description = "show filesystem", group = "widgets" }
-    ),
-
-
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
         function ()
@@ -337,14 +285,14 @@ local global_keys = awful.util.table.join(
 
     awful.key({ }, "XF86PowerOff",
         function()
-            exit_screen.show()
+            awesome.emit_signal('module::exit_screen:show')
         end,
         { description = "show exitscreen", group = "hotkeys" }
     ),
 
     awful.key({ }, "XF86PowerDown",
         function()
-            exit_screen.show()
+            awesome.emit_signal('module::exit_screen:show')
         end,
         { description = "show exitscreen", group = "hotkeys" }
     ),

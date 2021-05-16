@@ -91,19 +91,23 @@ screen.connect_signal(
 	'request::desktop_decoration',
 	function(s)
 		for i, tag in pairs(tags) do
-			awful.tag.add(
-				i,
-				{
-					icon = tag.icon,
-					icon_only = true,
-					layout = tag.layout or awful.layout.suit.spiral.dwindle,
-					gap_single_client = true,
-					gap = tag.gap,
-					screen = s,
-					default_app = tag.default_app,
-					selected = i == 1
-				}
-			)
+            local tag_layout = tag.layout or awful.layout.suit.spiral.dwindle
+            if s.geometry.width < 2000 then
+                tag_layout = awful.layout.suit.max
+            end
+            awful.tag.add(
+                i,
+                {
+                    icon = tag.icon,
+                    icon_only = true,
+                    layout = tag_layout,
+                    gap_single_client = true,
+                    gap = tag.gap,
+                    screen = s,
+                    default_app = tag.default_app,
+                    selected = i == 1
+                }
+            )
 		end
 	end
 )
