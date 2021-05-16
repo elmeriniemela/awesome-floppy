@@ -52,7 +52,7 @@ return {
 	-- List of apps to start once on start-up
 	run_on_start_up = {
 		"nm-applet",
-        "picom",
+        "picom -b --experimental-backends --dbus --config " .. config_dir .. "configuration/picom.conf",
         "lxqt-policykit-agent",
         "clipmenud",
         -- "blueman-applet", -- not really used atmgit s
