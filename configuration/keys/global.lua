@@ -90,7 +90,7 @@ local global_keys = awful.util.table.join(
 
     awful.key({ }, "Print",
         function()
-            awful.util.spawn_with_shell("flameshot gui")
+            awful.spawn.with_shell("flameshot gui")
         end,
         { description = "print screen", group = "hotkeys" }
     ),

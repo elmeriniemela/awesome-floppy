@@ -55,7 +55,7 @@ return {
         "picom -b --experimental-backends --dbus --config " .. config_dir .. "configuration/picom.conf",
         "lxqt-policykit-agent",
         "clipmenud",
-        -- "blueman-applet", -- not really used atmgit s
+        "blueman-applet", -- not really used atmgit s
 	},
 
 	-- List of binaries/shell scripts that will execute for a certain task
