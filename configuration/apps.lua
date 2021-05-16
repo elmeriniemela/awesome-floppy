@@ -6,13 +6,13 @@ return {
 	-- The default applications that we will use in keybindings and widgets
 	default = {
 		-- Default terminal emulator
-		terminal = 'kitty',
+		terminal = 'terminator',
 		-- Default web browser
 		web_browser = 'firefox',
 		-- Default text editor
-		text_editor = 'subl3',
+		text_editor = 'vim',
 		-- Default file manager
-		file_manager = 'dolphin',
+		file_manager = 'pcmanfm',
 		-- Default media player
 		multimedia = 'vlc',
 		-- Default game, can be a launcher like steam
@@ -22,7 +22,7 @@ return {
 		-- Default sandbox
 		sandbox = 'virtualbox',
 		-- Default IDE
-		development = '',
+		development = 'code',
 		-- Default network manager
 		network_manager = 'kitty iwctl',
 		-- Default bluetooth manager
@@ -36,9 +36,9 @@ return {
 		-- Default quake terminal
 		quake = 'kitty --name QuakeTerminal',
 		-- Default rofi global menu
-		rofi_global = 'rofi -dpi ' .. screen.primary.dpi .. 
-							' -show "Global Search" -modi "Global Search":' .. config_dir .. 
-							'/configuration/rofi/global/rofi-spotlight.sh' .. 
+		rofi_global = 'rofi -dpi ' .. screen.primary.dpi ..
+							' -show "Global Search" -modi "Global Search":' .. config_dir ..
+							'/configuration/rofi/global/rofi-spotlight.sh' ..
 							' -theme ' .. config_dir ..
 							'/configuration/rofi/global/rofi.rasi',
 		-- Default app menu
@@ -51,27 +51,11 @@ return {
 
 	-- List of apps to start once on start-up
 	run_on_start_up = {
-		-- Compositor
-		'picom -b --experimental-backends --dbus --config ' ..
-		config_dir .. '/configuration/picom.conf',
-		-- Blueman applet
-		'blueman-applet',
-		-- Music server
-		'mpd',
-		-- Polkit and keyring
-		'/usr/bin/lxqt-policykit-agent &' ..
-		' eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)',
-		-- Load X colors
-		'xrdb $HOME/.Xresources',
-		-- Audio equalizer
-		'pulseeffects --gapplication-service',
-		-- Lockscreen timer
-		[[
-		xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-		"awesome-client 'awesome.emit_signal(\"module::lockscreen_show\")'" ""
-		]]
-
-		-- You can add more start-up applications here
+		"nm-applet",
+        "picom",
+        "lxqt-policykit-agent",
+        "clipmenud",
+        -- "blueman-applet", -- not really used atmgit s
 	},
 
 	-- List of binaries/shell scripts that will execute for a certain task
