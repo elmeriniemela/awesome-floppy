@@ -17,14 +17,14 @@ local editor_cmd = terminal .. ' -e ' .. (os.getenv('EDITOR') or 'nano')
 
 --[[
 
-	Awesome-Freedesktop
-	Freedesktop.org compliant desktop entries and menu
+    Awesome-Freedesktop
+    Freedesktop.org compliant desktop entries and menu
 
-	Menu section
+    Menu section
 
-	Licensed under GNU General Public License v2
-	  * (c) 2016, Luke Bonham
-	  * (c) 2014, Harvey Mittens
+    Licensed under GNU General Public License v2
+      * (c) 2016, Luke Bonham
+      * (c) 2014, Harvey Mittens
 
 --]]
 
@@ -140,107 +140,107 @@ end
 
 -- Create a launcher widget and a main menu
 awesome_menu = {
-	{ 
-		'Hotkeys',
-		function()
-			hotkeys_popup.show_help(nil, awful.screen.focused())
-		end,
-		menubar.utils.lookup_icon('keyboard')
-	},
-	{ 
-		'Edit config',
-		editor_cmd .. ' ' .. awesome.conffile,
-		menubar.utils.lookup_icon('accessories-text-editor')
-	},
-	{ 
-		'Restart',
-		awesome.restart,
-		menubar.utils.lookup_icon('system-restart')
-	},
-	{
-		'Quit',
-		function() awesome.quit() end,
-		menubar.utils.lookup_icon('system-log-out')
-	}
+    {
+        'Hotkeys',
+        function()
+            hotkeys_popup.show_help(nil, awful.screen.focused())
+        end,
+        menubar.utils.lookup_icon('keyboard')
+    },
+    {
+        'Edit config',
+        editor_cmd .. ' ' .. awesome.conffile,
+        menubar.utils.lookup_icon('accessories-text-editor')
+    },
+    {
+        'Restart',
+        awesome.restart,
+        menubar.utils.lookup_icon('system-restart')
+    },
+    {
+        'Quit',
+        function() awesome.quit() end,
+        menubar.utils.lookup_icon('system-log-out')
+    }
 }
 
 local default_app_menu = {
-	{
-		'Terminal',
-		terminal,
-		menubar.utils.lookup_icon('utilities-terminal')
-	},
-	{
-		'Web browser',
-		web_browser,
-		menubar.utils.lookup_icon('webbrowser-app')
-	},
-	{
-		'File Manager',
-		file_manager,
-		menubar.utils.lookup_icon('system-file-manager')
-	},
-	{
-		'Text Editor',
-		text_editor,
-		menubar.utils.lookup_icon('accessories-text-editor')
-	}
+    {
+        'Terminal',
+        terminal,
+        menubar.utils.lookup_icon('utilities-terminal')
+    },
+    {
+        'Web browser',
+        web_browser,
+        menubar.utils.lookup_icon('webbrowser-app')
+    },
+    {
+        'File Manager',
+        file_manager,
+        menubar.utils.lookup_icon('system-file-manager')
+    },
+    {
+        'Text Editor',
+        text_editor,
+        menubar.utils.lookup_icon('accessories-text-editor')
+    }
 }
 
 -- Screenshot menu
 local screenshot_menu = {
-	{
-		'Full',
-		function()
-			gears.timer.start_new(
-				0.1,
-				function()
-					awful.spawn.easy_async_with_shell(apps.utils.full_screenshot)
-				end
-			)
-		end,
-		menubar.utils.lookup_icon('accessories-screenshot')
-	},
-	{
-		'Area',
-		function() 
-			gears.timer.start_new(
-				0.1,
-				function()
-					awful.spawn.easy_async_with_shell(apps.utils.area_screenshot)
-				end,
-				menubar.utils.lookup_icon('accessories-screenshot')
-			)
-		end,
-		menubar.utils.lookup_icon('accessories-screenshot')
-	}
+    {
+        'Full',
+        function()
+            gears.timer.start_new(
+                0.1,
+                function()
+                    awful.spawn.easy_async_with_shell(apps.utils.full_screenshot)
+                end
+            )
+        end,
+        menubar.utils.lookup_icon('accessories-screenshot')
+    },
+    {
+        'Area',
+        function()
+            gears.timer.start_new(
+                0.1,
+                function()
+                    awful.spawn.easy_async_with_shell(apps.utils.area_screenshot)
+                end,
+                menubar.utils.lookup_icon('accessories-screenshot')
+            )
+        end,
+        menubar.utils.lookup_icon('accessories-screenshot')
+    }
 }
 
 local tools_menu = {
-	{
-		'Awesome',
-		awesome_menu,
-		beautiful.awesome_icon
-	},
-	{
-		'Take a Screenshot',
-		screenshot_menu,
-		menubar.utils.lookup_icon('accessories-screenshot')
-	},
-	{
-		'End Session',
-		function()
-			awesome.emit_signal('module::exit_screen:show')
-		end,
-		menubar.utils.lookup_icon('system-shutdown') 
-	}
+    {
+        'Awesome',
+        awesome_menu,
+        beautiful.awesome_icon
+    },
+    {
+        'Take a Screenshot',
+        screenshot_menu,
+        menubar.utils.lookup_icon('accessories-screenshot')
+    },
+    {
+        'End Session',
+        function()
+            awesome.emit_signal('module::exit_screen:show')
+        end,
+        menubar.utils.lookup_icon('system-shutdown')
+    }
 }
 
 mymainmenu = menu.build({
-	-- Not actually the size, but the quality of the icon
-	icon_size = 48,
-		before = default_app_menu,
-	after = tools_menu
+    -- Not actually the size, but the quality of the icon
+    icon_size = 48,
+        before = default_app_menu,
+    after = tools_menu
 })
 
 mylauncher = awful.widget.launcher({image = beautiful.awesome_icon, menu = mymainmenu})
