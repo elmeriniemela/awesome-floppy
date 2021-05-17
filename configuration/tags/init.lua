@@ -28,23 +28,26 @@ local tags = {
 		icon = icons.file_manager,
 		default_app = apps.default.file_manager,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
 	},
 	{
 		type = 'multimedia',
 		icon = icons.multimedia,
 		default_app = apps.default.multimedia,
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.floating,
 		gap = 0
 	},
-	{
-		type = 'games',
-		icon = icons.games,
-		default_app = apps.default.game,
-		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.floating
-	},
+    {
+        type = 'social',
+        icon = icons.social,
+        default_app = 'thunderbird',
+        gap = beautiful.useless_gap
+    },
+	-- {
+	-- 	type = 'games',
+	-- 	icon = icons.games,
+	-- 	default_app = apps.default.game,
+	-- 	gap = beautiful.useless_gap,
+	-- },
 	{
 		type = 'graphics',
 		icon = icons.graphics,
@@ -58,19 +61,13 @@ local tags = {
 		layout = awful.layout.suit.max,
 		gap = 0
 	},
-	{
-		type = 'any',
-		icon = icons.development,
-		default_app = apps.default.development,
-		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.floating
-	}
 	-- {
-	--   type = 'social',
-	--   icon = icons.social,
-	--   default_app = 'discord',
-	--   gap = beautiful.useless_gap
+	-- 	type = 'any',
+	-- 	icon = icons.development,
+	-- 	default_app = apps.default.development,
+	-- 	gap = beautiful.useless_gap,
 	-- }
+
 }
 
 -- Set tags layout
@@ -95,8 +92,8 @@ screen.connect_signal(
             if s.geometry.width < 2000 then
                 tag_layout = awful.layout.suit.max
             end
-            awful.tag.add(
-                i,
+            local created_tag = awful.tag.add(
+                tag.type,
                 {
                     icon = tag.icon,
                     icon_only = true,

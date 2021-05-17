@@ -140,7 +140,7 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '1',
+                tag = 'terminal',
                 size_hints_honor = false,
                 titlebars_enabled = true
             }
@@ -159,7 +159,7 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '2'
+                tag = 'internet'
             }
         }
 
@@ -173,6 +173,12 @@ ruled.client.connect_signal(
                     'Subl3',
                     'code-oss',
                     'Code',
+                    'Oomox',
+                    'Unity',
+                    'UnityHub',
+                    'jetbrains-studio',
+                    'Ettercap',
+                    'scrcpy',
                 },
                 name  = {
                     'LibreOffice',
@@ -180,7 +186,7 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '3'
+                tag = 'code'
             }
         }
 
@@ -197,7 +203,7 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '4',
+                tag = 'files',
             }
         }
 
@@ -211,14 +217,14 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '5',
+                tag = 'multimedia',
                 placement = awful.placement.centered
             }
         }
 
         -- Gaming
         ruled.client.append_rule {
-            id = 'chat',
+            id = 'social',
             rule_any = {
                 class = {
                     'Slack',
@@ -232,7 +238,7 @@ ruled.client.connect_signal(
                 },
             },
             properties = {
-                tag = '6',
+                tag = 'social',
                 skip_decoration = true,
                 placement = awful.placement.centered
             }
@@ -249,7 +255,7 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '7'
+                tag = 'graphics'
             }
         }
 
@@ -265,27 +271,7 @@ ruled.client.connect_signal(
                 }
             },
             properties = {
-                tag = '8'
-            }
-        }
-
-        -- IDEs and Tools
-        ruled.client.append_rule {
-            id = 'development',
-            rule_any = {
-                class = {
-                    'Oomox',
-                    'Unity',
-                    'UnityHub',
-                    'jetbrains-studio',
-                    'Ettercap',
-                    'scrcpy',
-                    'code',
-                    'code-oss',
-                }
-            },
-            properties = {
-                tag = '9',
+                tag = 'sandbox'
             }
         }
 
