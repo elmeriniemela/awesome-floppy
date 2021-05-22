@@ -44,15 +44,15 @@ return {
 
         screen_recorder = {
             -- Default record dimension
-            resolution = '1366x768',
+            resolution = '1920x1080',
             -- X,Y coordinate
-            offset = '0,0',
+            offset = '960,2160',
             -- Enable audio by default
-            audio = true,
+            audio = false,
             -- Recordings directory
             save_directory = '$(xdg-user-dir VIDEOS)/Recordings/',
             -- Mic level
-            mic_level = '20',
+            mic_level = '100',
             -- FPS
             fps = '30'
         }
