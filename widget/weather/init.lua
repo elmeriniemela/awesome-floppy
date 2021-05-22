@@ -204,7 +204,7 @@ local weather_report =  wibox.widget {
 						}
 					}
 				},
-				nil				
+				nil
 			}
 		},
 		margins = dpi(10),
@@ -213,9 +213,9 @@ local weather_report =  wibox.widget {
 	forced_height = dpi(92),
 	bg = beautiful.groups_bg,
 	shape = function(cr, width, height)
-		gears.shape.partially_rounded_rect(cr, width, height, true, true, true, true, beautiful.groups_radius) 
+		gears.shape.partially_rounded_rect(cr, width, height, true, true, true, true, beautiful.groups_radius)
 	end,
-	widget = wibox.container.background	
+	widget = wibox.container.background
 }
 
 -- Return weather symbol
@@ -255,7 +255,7 @@ awesome.connect_signal(
 			create_weather_script('forecast'),
 			function(stdout)
 				if stdout:match('error') then
-					weather_forecast_tooltip:set_markup('Can\'t retrieve data!')
+					weather_forecast_tooltip:set_markup('Can\'t retrieve data!\n'..stdout)
 				else
 					local forecast_data = json.parse(stdout)
 					local forecast = ''
@@ -290,12 +290,12 @@ awesome.connect_signal(
 			function(stdout)
 				if stdout:match('error') then
 					awesome.emit_signal(
-						'widget::weather_update', 
-						'...', 
-						'Dust and clouds, -1000°C', 
-						'Earth, Milky Way', 
-						'00:00', 
-						'00:00', 
+						'widget::weather_update',
+						'...',
+						'Dust and clouds, -1000°C',
+						'Earth, Milky Way',
+						'00:00',
+						'00:00',
 						'00:00'
 					)
 				else
@@ -322,12 +322,12 @@ awesome.connect_signal(
 					local weather_location = location .. ', ' .. country
 
 					awesome.emit_signal(
-						'widget::weather_update', 
-						weather_icon, 
-						weather_description, 
-						weather_location, 
-						sunrise, 
-						sunset, 
+						'widget::weather_update',
+						weather_icon,
+						weather_description,
+						weather_location,
+						sunrise,
+						sunset,
 						refresh
 					)
 				end
@@ -349,14 +349,14 @@ local update_widget_timer = gears.timer {
 
 awesome.connect_signal(
 	'system::network_connected',
-	function() 
+	function()
 		awesome.emit_signal('widget::weather_fetch')
 		awesome.emit_signal('widget::forecast_fetch')
 	end
 )
 
 awesome.connect_signal(
-	'widget::weather_update', 
+	'widget::weather_update',
 	function(code, desc, location, sunrise, sunset, data_receive)
 		local widget_icon_name = 'weather-error'
 
@@ -386,7 +386,7 @@ awesome.connect_signal(
 
 		weather_icon_widget.icon:set_image(widget_icon_dir .. widget_icon_name)
 		weather_icon_widget.icon:emit_signal('widget::redraw_needed')
-		
+
 		weather_desc_temp.description:set_markup(desc)
 		weather_location.location:set_markup(location)
 		weather_sunrise:set_markup(sunrise)

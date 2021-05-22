@@ -9,6 +9,7 @@ local dpi = beautiful.xresources.apply_dpi
 local apps = require('configuration.apps')
 local widget_icon_dir = config_dir .. 'configuration/user-profile/'
 local config = require('configuration.config')
+local utilities = require('utilities')
 
 -- Add paths to package.cpath
 package.cpath = package.cpath .. ';' .. config_dir .. '/library/?.so;' .. '/usr/lib/lua-pam/?.so;'
@@ -446,22 +447,6 @@ local locker = function(s)
         generalkenobi_ohhellothere()
     end
 
-    -- Check module if valid
-    local module_check = function(name)
-        if package.loaded[name] then
-            return true
-        else
-            for _, searcher in ipairs(package.searchers or package.loaders) do
-                local loader = searcher(name)
-                if type(loader) == 'function' then
-                    package.preload[name] = loader
-                    return true
-                end
-            end
-            return false
-        end
-    end
-
     -- Password/key grabber
     local password_grabber = awful.keygrabber {
         auto_start          = true,
@@ -533,7 +518,7 @@ local locker = function(s)
                 local authenticated = false
                 if input_password ~= nil then
                     -- If lua-pam library is 'okay'
-                    if module_check('liblua_pam') then
+                    if utilities.module_check('liblua_pam') then
                         local pam = require('liblua_pam')
                         authenticated = pam:auth_current_user(input_password)
                     else

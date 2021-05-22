@@ -1,3 +1,11 @@
+
+local utilities = require('utilities')
+
+local weather_api_key = ''
+if utilities.module_check('configuration.weather_api_key') then
+    weather_api_key = require('configuration.weather_api_key')
+end
+
 return {
     widget = {
         email  = {
@@ -13,9 +21,9 @@ return {
 
         weather = {
             -- API Key
-            key = '',
+            key = weather_api_key,
             -- City ID
-            city_id = '',
+            city_id = '658226', -- Helsinki
             -- Units
             units = 'metric',
             -- Update in N seconds
@@ -40,7 +48,7 @@ return {
             -- X,Y coordinate
             offset = '0,0',
             -- Enable audio by default
-            audio = false,
+            audio = true,
             -- Recordings directory
             save_directory = '$(xdg-user-dir VIDEOS)/Recordings/',
             -- Mic level
