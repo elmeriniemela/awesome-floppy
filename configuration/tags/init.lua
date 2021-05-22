@@ -20,7 +20,7 @@ local tags = {
 	{
 		type = 'code',
 		icon = icons.text_editor,
-		default_app = apps.default.text_editor,
+		default_app = apps.default.development,
 		gap = beautiful.useless_gap
 	},
 	{

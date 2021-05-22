@@ -44,7 +44,7 @@ local global_keys = awful.util.table.join(
     -- X screen locker
     awful.key({ altkey, "Control" }, "l",
         function ()
-            os.execute("slock")
+            awful.spawn.with_shell(apps.default.lock)
         end,
         { description = "lock screen", group = "hotkeys" }
     ),
@@ -244,7 +244,7 @@ local global_keys = awful.util.table.join(
 
     awful.key({ modkey }, "space",
         function ()
-            os.execute("rofi -show drun")
+            awful.spawn("rofi -show drun")
         end,
         { description = "select next", group = "layout" }
     ),
@@ -271,14 +271,14 @@ local global_keys = awful.util.table.join(
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
         function ()
-            os.execute("xbacklight -inc 10")
+            awful.spawn("xbacklight -inc 10")
         end,
         { description = "+10%", group = "hotkeys" }
     ),
 
     awful.key({ }, "XF86MonBrightnessDown",
         function ()
-            os.execute("xbacklight -dec 10")
+            awful.spawn("xbacklight -dec 10")
         end,
         { description = "-10%", group = "hotkeys" }
     ),
@@ -458,7 +458,7 @@ local global_keys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey }, "r",
         function ()
-            os.execute("rofi -show run")
+            awful.spawn("rofi -show run")
         end,
         { description = "run prompt", group = "launcher" }
     )
