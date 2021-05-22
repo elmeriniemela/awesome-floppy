@@ -299,53 +299,36 @@ local global_keys = awful.util.table.join(
 
     -- ALSA volume control
     awful.key({ }, "XF86AudioRaiseVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
-            beautiful.volume.update()
+        function()
+            awful.spawn('amixer -D pulse sset Master 5%+', false)
+            awesome.emit_signal('widget::volume')
+            awesome.emit_signal('module::volume_osd:show', true)
         end,
-        { description = "volume up", group = "hotkeys" }
+        {description = 'increase volume up by 5%', group = 'hotkeys'}
     ),
 
     awful.key({ }, "XF86AudioLowerVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
-            beautiful.volume.update()
+        function()
+            awful.spawn('amixer -D pulse sset Master 5%-', false)
+            awesome.emit_signal('widget::volume')
+            awesome.emit_signal('module::volume_osd:show', true)
         end,
-        { description = "volume down", group = "hotkeys" }
+        {description = 'decrease volume up by 5%', group = 'hotkeys'}
     ),
 
     awful.key({ }, "XF86AudioMute",
-        function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
+        function()
+            awful.spawn('amixer -D pulse set Master 1+ toggle', false)
         end,
-        { description = "toggle audio mute", group = "hotkeys" }
-    ),
-
-    awful.key({ "Control" }, "XF86AudioRaiseVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 5%%+", beautiful.mic.channel))
-            beautiful.mic.update()
-        end,
-        { description = "mic up", group = "hotkeys" }
-    ),
-
-    awful.key({ "Control" }, "XF86AudioLowerVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 5%%-", beautiful.mic.channel))
-            beautiful.mic.update()
-        end,
-        { description = "mic down", group = "hotkeys" }
+        {description = 'toggle mute', group = 'hotkeys'}
     ),
 
     awful.key({ }, "XF86AudioMicMute",
-        function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.mic.togglechannel or beautiful.mic.channel))
-            beautiful.mic.update()
+        function()
+            awful.spawn('amixer set Capture toggle', false)
         end,
-        { description = "toggle mic mute", group = "hotkeys" }
+        {description = 'mute microphone', group = 'hotkeys'}
     ),
-
 
     awful.key({ }, "XF86Tools",
         function ()
