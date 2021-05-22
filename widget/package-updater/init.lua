@@ -14,7 +14,6 @@ local config_dir = gears.filesystem.get_configuration_dir()
 local widget_icon_dir = config_dir .. 'widget/package-updater/icons/'
 
 local update_available = false
-local number_of_updates_available = nil
 local update_package = nil
 
 local return_button = function()
@@ -45,13 +44,8 @@ local return_button = function()
 				1,
 				nil,
 				function()
-					
 					if update_available then
-						awful.spawn(apps.default.package_manager .. ' --updates', false)
-					
-					else
-						awful.spawn(apps.default.package_manager, false)
-					
+                        awful.spawn(apps.default.terminal.." -e 'bootstrap-linux update'")
 					end
 				end
 			)
@@ -72,26 +66,23 @@ local return_button = function()
 				else
 					return 'We are up-to-date!'
 				end
-			
+
 			end,
 			preferred_positions = {'right', 'left', 'top', 'bottom'}
 		}
 	)
 
 	watch(
-		'pamac checkupdates',
-		60,
+		'pacman -Qu',
+		30,
 		function(_, stdout)
-			number_of_updates_available = tonumber(stdout:match('.-\n'):match('%d*'))
+            update_available = not (stdout == nil or stdout == '')
 			update_package = stdout
 			local icon_name = nil
-			if number_of_updates_available ~= nil then
-				update_available = true
+			if update_available then
 				icon_name = 'package-up'
 			else
-				update_available = false
 				icon_name = 'package'
-				
 			end
 
 			widget.icon:set_image(widget_icon_dir .. icon_name .. '.svg')
