@@ -47,6 +47,7 @@ require('module.menu')
 require('module.titlebar')
 require('module.brightness-osd')
 require('module.volume-osd')
+require('module.mic-osd')
 require('module.lockscreen')
 require('module.dynamic-wallpaper')
 

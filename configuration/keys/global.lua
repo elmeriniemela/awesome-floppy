@@ -316,6 +316,24 @@ local global_keys = awful.util.table.join(
         {description = 'decrease volume up by 5%', group = 'hotkeys'}
     ),
 
+    awful.key({ "Control" }, "XF86AudioRaiseVolume",
+        function()
+            awful.spawn('amixer -D pulse sset Capture 5%+', false)
+            awesome.emit_signal('widget::mic')
+            awesome.emit_signal('module::mic_osd:show', true)
+        end,
+        {description = 'increase mic up by 5%', group = 'hotkeys'}
+    ),
+
+    awful.key({ "Control" }, "XF86AudioLowerVolume",
+        function()
+            awful.spawn('amixer -D pulse sset Capture 5%-', false)
+            awesome.emit_signal('widget::mic')
+            awesome.emit_signal('module::mic_osd:show', true)
+        end,
+        {description = 'decrease mic up by 5%', group = 'hotkeys'}
+    ),
+
     awful.key({ }, "XF86AudioMute",
         function()
             awful.spawn('amixer -D pulse set Master 1+ toggle', false)
