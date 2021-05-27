@@ -23,8 +23,6 @@ return {
         sandbox = 'virtualbox',
         -- Default IDE
         development = 'code',
-        -- Default network manager
-        network_manager = 'kitty iwctl',
         -- Default bluetooth manager
         bluetooth_manager = 'blueman-manager',
         -- Default power manager
@@ -33,8 +31,6 @@ return {
         package_manager = 'pacman',
         -- Default locker
         lock = 'awesome-client "awesome.emit_signal(\'module::lockscreen_show\')"',
-        -- Default quake terminal
-        quake = 'kitty --name QuakeTerminal',
         -- Default rofi global menu
         rofi_global = 'rofi -dpi ' .. screen.primary.dpi ..
                             ' -show "Global Search" -modi "Global Search":' .. config_dir ..

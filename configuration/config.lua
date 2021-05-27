@@ -8,17 +8,6 @@ end
 
 return {
     widget = {
-        email  = {
-            -- Email address
-            address = '',
-            -- App password
-            app_password = '',
-            -- Imap server
-            imap_server = 'imap.gmail.com',
-            -- Port
-            port = '993'
-        },
-
         weather = {
             -- API Key
             key = weather_api_key,
@@ -28,13 +17,6 @@ return {
             units = 'metric',
             -- Update in N seconds
             update_interval = 1200
-        },
-
-        network = {
-            -- Wired interface
-            wired_interface = 'enp0s0',
-            -- Wireless interface
-            wireless_interface = 'wlan0'
         },
 
         clock = {

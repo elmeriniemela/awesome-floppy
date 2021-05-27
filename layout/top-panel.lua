@@ -81,7 +81,6 @@ local top_panel = function(s, offset)
             s.tray_toggler,
             s.updater,
             s.screen_rec,
-            s.network,
             s.bluetooth,
             s.battery,
             layout_box,
