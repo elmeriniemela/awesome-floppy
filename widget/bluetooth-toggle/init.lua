@@ -153,7 +153,7 @@ widget_button:buttons(
 
 watch(
     'rfkill list bluetooth',
-    5,
+    30,
     function(_, stdout)
         check_device_state()
         collectgarbage('collect')

@@ -23,8 +23,6 @@ return {
         sandbox = 'virtualbox',
         -- Default IDE
         development = 'code',
-        -- Default bluetooth manager
-        bluetooth_manager = 'blueman-manager',
         -- Default power manager
         power_manager = 'xfce4-power-manager',
         -- Default GUI package manager
