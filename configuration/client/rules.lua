@@ -322,6 +322,7 @@ ruled.client.connect_signal(
                     'zoom',
                     'Matplotlib',
                     'Galculator',
+                    'copyq',
                 },
                 role = {
                     'AlarmWindow',
