@@ -454,9 +454,9 @@ local global_keys = awful.util.table.join(
 
     awful.key({ modkey }, "v",
         function ()
-            awful.spawn.with_shell("clipmenu && xdotool key Shift+Insert")
+            awful.spawn.with_shell("copyq show")
         end,
-        { description = "open clipmenu", group = "launcher" }
+        { description = "open clipboard manager", group = "launcher" }
     ),
 
     awful.key({ modkey }, "c",
