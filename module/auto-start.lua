@@ -7,6 +7,7 @@ local apps = require('configuration.apps')
 local config = require('configuration.config')
 local watch = awful.widget.watch
 local debug_mode = config.module.auto_start.debug_mode or false
+local gears = require('gears')
 
 local run_watcher = function(cmd)
     watch(
@@ -50,7 +51,13 @@ end
 
 for _, app in ipairs(apps.run_on_start_up) do
     run_once(app)
-    run_watcher(app)
+    -- Add a little delay before checking if autostart apps have died
+    gears.timer.start_new(
+        5,
+        function()
+            run_watcher(app)
+        end
+    )
 end
 
 awesome.connect_signal(
