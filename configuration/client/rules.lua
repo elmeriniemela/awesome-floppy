@@ -222,6 +222,25 @@ ruled.client.connect_signal(
             }
         }
 
+        -- copyq
+        -- ruled.client.append_rule {
+        --     id = 'copyq',
+        --     rule_any = {
+        --         class = {
+        --             'copyq',
+        --         }
+        --     },
+        --     properties = {
+        --         placement = awful.placement.centered,
+        --         ontop = true,
+        --         -- floating = true,
+        --         -- honor_workarea = true,
+        --         -- honor_padding = true,
+        --         width = 600,
+        --         height = 600,
+        --     }
+        -- }
+
         -- Gaming
         ruled.client.append_rule {
             id = 'social',
@@ -322,7 +341,6 @@ ruled.client.connect_signal(
                     'zoom',
                     'Matplotlib',
                     'Galculator',
-                    'copyq',
                 },
                 role = {
                     'AlarmWindow',
@@ -396,5 +414,7 @@ client.connect_signal(
                 end
             end
         end
+
+
     end
 )
