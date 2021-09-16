@@ -79,7 +79,7 @@ profile_imagebox:buttons(
 				naughty.notification({
 					app_name = 'FBI\'s ChatBot v69',
 					title = title_table[math.random(#title_table)],
-					message = message_table[math.random(#message_table)] .. 
+					message = message_table[math.random(#message_table)] ..
 					'\n\n- xXChatBOT69Xx',
 					urgency = 'normal'
 				})
@@ -142,13 +142,13 @@ awful.spawn.easy_async_with_shell(
 	fullname="$(getent passwd `whoami` | cut -d ':' -f 5 | cut -d ',' -f 1 | tr -d "\n")"
 	if [ -z "$fullname" ];
 	then
-		printf "$(whoami)@$(hostname)"
+		printf "$(whoami)@$HOSTNAME"
 	else
 		printf "$fullname"
 	fi
 	'
 	]],
-	function(stdout) 
+	function(stdout)
 		local stdout = stdout:gsub('%\n', '')
 		profile_name:set_markup(stdout)
 	end
@@ -177,7 +177,7 @@ local update_uptime = function()
 		'uptime -p',
 		function(stdout)
 			local uptime = stdout:gsub('%\n','')
-			uptime_time:set_markup(uptime)		
+			uptime_time:set_markup(uptime)
 		end
 	)
 end
@@ -226,12 +226,12 @@ local user_profile = wibox.widget {
 		gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
 	end,
 	widget = wibox.container.background
-	
+
 }
 
 user_profile:connect_signal(
 	'mouse::enter',
-	function() 
+	function()
 		update_uptime()
 	end
 )

@@ -341,6 +341,7 @@ ruled.client.connect_signal(
                     'zoom',
                     'Matplotlib',
                     'Galculator',
+                    'VulkanTest',
                 },
                 role = {
                     'AlarmWindow',
