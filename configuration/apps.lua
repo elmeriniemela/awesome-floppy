@@ -8,7 +8,7 @@ return {
         -- Default terminal emulator
         terminal = 'terminator',
         -- Default web browser
-        web_browser = 'firefox',
+        web_browser = 'brave',
         -- Default text editor
         text_editor = 'vim',
         -- Default file manager

@@ -152,6 +152,7 @@ ruled.client.connect_signal(
             rule_any = {
                 class = {
                     'firefox',
+                    'Brave-browser',
                     'Tor Browser',
                     'discord',
                     'Chromium',
@@ -248,7 +249,7 @@ ruled.client.connect_signal(
                 class = {
                     'Slack',
                     'Thunderbird',
-                    'whatsapp-nativefier-d40211',
+                    'Whatsapp-for-linux',
                     'zoom',
                     'Signal',
                     'Zulip',

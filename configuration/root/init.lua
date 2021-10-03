@@ -20,7 +20,7 @@ root.buttons(
 			function ()
 				if mymainmenu then
 					mymainmenu:toggle()
-				end 
+				end
 			end
 		),
 		awful.button(
@@ -44,24 +44,24 @@ root.buttons(
 				awesome.emit_signal('widget::blue_light:toggle')
 			end
 		),
-		awful.button(
-			{},
-			4,
-		 	function()
-	            awful.spawn('light -A 10',false)
-	            awesome.emit_signal('widget::brightness')
-	            awesome.emit_signal('module::brightness_osd:show',true)
-		 	end
-		),
-		awful.button(
-			{},
-			5,
-		 	function()
-	            awful.spawn('light -U 10',false)
-	            awesome.emit_signal('widget::brightness')
-	            awesome.emit_signal('module::brightness_osd:show',true)
-		 	end
-		),
+		-- awful.button(
+		-- 	{},
+		-- 	4,
+		--  	function()
+	    --         awful.spawn('light -A 10',false)
+	    --         awesome.emit_signal('widget::brightness')
+	    --         awesome.emit_signal('module::brightness_osd:show',true)
+		--  	end
+		-- ),
+		-- awful.button(
+		-- 	{},
+		-- 	5,
+		--  	function()
+	    --         awful.spawn('light -U 10',false)
+	    --         awesome.emit_signal('widget::brightness')
+	    --         awesome.emit_signal('module::brightness_osd:show',true)
+		--  	end
+		-- ),
 		awful.button(
 			{'Control'},
 			4,
