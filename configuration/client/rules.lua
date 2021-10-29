@@ -302,7 +302,9 @@ ruled.client.connect_signal(
                 class    = {
                     'feh',
                     'Pqiv',
-                    'Sxiv'
+                    'Sxiv',
+                    'Peek',
+                    'peek',
                 },
             },
             properties = {

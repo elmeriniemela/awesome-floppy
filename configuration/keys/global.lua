@@ -426,7 +426,7 @@ local global_keys = awful.util.table.join(
 
     awful.key({ modkey }, "w",
         function ()
-            run_or_raise("whatsapp-for-linux", "Whatsapp-for-linux")
+            run_or_raise("whatsapp-for-linux", "whatsapp")
         end,
         { description = "open whatsapp", group = "launcher" }
     ),

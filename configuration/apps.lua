@@ -50,7 +50,7 @@ return {
         "lxqt-policykit-agent",
         "copyq",
         "blueman-applet", -- not really used atmgit s
-        [[xidlehook --not-when-fullscreen --not-when-audio --timer 600  "awesome-client 'awesome.emit_signal(\"module::lockscreen_show\")' && systemctl suspend" ""]],
+        [[xidlehook --not-when-fullscreen --not-when-audio --timer 3600  "awesome-client 'awesome.emit_signal(\"module::lockscreen_show\")' && systemctl suspend" ""]],
     },
 
     -- List of binaries/shell scripts that will execute for a certain task
