@@ -249,6 +249,13 @@ local global_keys = awful.util.table.join(
         { description = "select next", group = "layout" }
     ),
 
+    awful.key({ altkey }, "Tab",
+        function ()
+            awful.spawn("rofi -show window -kb-accept-entry '!Alt-Tab,Return' -kb-row-down 'Alt-Tab,Down' -kb-cancel 'Alt+Escape,Escape'")
+        end,
+        { description = "Select Open client", group = "layout" }
+    ),
+
     awful.key({ modkey, "Shift" }, "space",
         function ()
             awful.layout.inc(-1)
