@@ -75,7 +75,7 @@ tag.connect_signal(
 	'request::default_layouts',
 	function()
 	    awful.layout.append_default_layouts({
-			awful.layout.suit.spiral.dwindle,
+			-- awful.layout.suit.spiral.dwindle,
 			awful.layout.suit.tile,
 			awful.layout.suit.floating,
 			awful.layout.suit.max
@@ -88,7 +88,7 @@ screen.connect_signal(
 	'request::desktop_decoration',
 	function(s)
 		for i, tag in pairs(tags) do
-            local tag_layout = tag.layout or awful.layout.suit.spiral.dwindle
+            local tag_layout = tag.layout or awful.layout.suit.tile
             if s.geometry.width < 2000 then
                 tag_layout = awful.layout.suit.max
             end
